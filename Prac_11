@@ -1,0 +1,55 @@
+import os
+
+def clear_console() :
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    def main() :
+    while True :
+        clear_console()
+        print("[ + ] Программа - “Геометрические фигуры”\n")
+        print("[ 1 ] Линия")
+        print("[ 0 ] Выход")
+
+        choice = input("\n[ + ] Выберите фигуру: ")
+
+        if choice == '1':
+clear_console()
+print("[ + ] Фигура: “Линия”\n")
+print("[ 1 ] Горизонтальная")
+print("[ 2 ] Вертикальная")
+
+line_type = input("\n[ + ] Выберите тип: ")
+
+
+try :
+    length = int(input("[ + ] Длина линии: "))
+    texture = input("[ + ] Текстура линии: ")
+
+    print("\n[ + ] Результат:\n")
+
+    if line_type == '1':
+
+print((texture + " ") * length)
+elif line_type == '2':
+
+count = 0
+while count < length:
+print(texture)
+count += 1
+    else:
+print("Ошибка: Неверный тип линии.")
+
+except ValueError :
+print("Ошибка: Длина должна быть числом.")
+
+input("\nНажмите Enter, чтобы вернуться в меню...")
+
+elif choice == '0' :
+    print("Завершение работы...")
+    break
+        else:
+print("Неверный ввод. Попробуйте еще раз.")
+input("Нажмите Enter...")
+
+if name == "main" :
+    main()
