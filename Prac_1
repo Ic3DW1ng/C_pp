@@ -1,0 +1,15 @@
+#include
+using namespace std;
+int main() {
+setlocale(0, "");
+int a_1 = 10;
+cout << "a_1 = " << a_1 << " | тип: int, размер: 4 б." << endl;
+int a_2 = 140;
+cout << "a_2 = " << a_2 << " | тип: int, размер: 4 б." << endl;
+int a_3 = 16;
+cout << "a_3 = " << a_3 << " | тип: int, размер: 4 б." << endl;
+int a_4 = 12;
+cout << "a_4 = " << a_4 << " | тип: int, размер: 4 б." << endl;
+int a_5 = 156;
+cout << "a_5 = " << a_5 << " | тип: int, размер: 4 б." << endl;
+}
