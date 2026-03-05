@@ -1,0 +1,50 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    // 1. Очистка и заголовок
+    system("cls"); 
+    cout << "[ + ] Фигура: \"Прямоугольник\"" << endl;
+
+    // 2. Выбор типа
+    int type;
+    cout << "\n[ 1 ] Заполненный\n[ 2 ] Пустой" << endl;
+    cout << "\n[ + ] Выберите тип: ";
+    cin >> type;
+
+    // 3. Ввод параметров
+    int width, height;
+    char texture;
+    cout << "[ + ] Ширина: ";
+    cin >> width;
+    cout << "[ + ] Высота: ";
+    cin >> height;
+    cout << "[ + ] Текстура: ";
+    cin >> texture;
+
+    cout << "\n[ + ] Результат:\n" << endl;
+
+    // 4. Логика отрисовки
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            
+            if (type == 1) {
+                // Тип 1: Заполненный (всегда рисуем символ)
+                cout << texture << "  ";
+            } 
+            else {
+                // Тип 2: Пустой (рисуем только границы)
+                // Границы: i=0 (верх), i=height-1 (низ), j=0 (лево), j=width-1 (право)
+                if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
+                    cout << texture << "  ";
+                } else {
+                    cout << ".  "; // Пустота внутри
+                }
+            }
+        }
+        cout << endl; // Переход на новую строку
+    }
+
+    return 0;
+}
