@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    // Очистка консоли
+    system("cls"); 
+
+    cout << "[ + ] Фигура: \"Плюс\"" << endl;
+
+    int size;
+    char texture;
+
+    cout << "[ + ] Размер: ";
+    cin >> size;
+    cout << "[ + ] Текстура: ";
+    cin >> texture;
+
+    cout << "\n[ + ] Результат:\n" << endl;
+
+    // Вычисляем центр (например, для 7 это 3)
+    int mid = size / 2;
+
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            
+            // Если мы в центральной строке ИЛИ в центральном столбце
+            if (i == mid || j == mid) {
+                cout << texture << "     ";
+            } else {
+                cout << ".     ";
+            }
+        }
+        cout << endl; // Переход на новую строку
+    }
+
+    return 0;
+}
