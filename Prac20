@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    // 1. Очистка консоли (для Windows - "cls", для Unix - "clear")
+    system("cls"); 
+
+    cout << "[ + ] Фигура: \"Змейка\"" << endl;
+
+    int size;
+    char texture;
+
+    cout << "[ + ] Размер: ";
+    cin >> size;
+    cout << "[ + ] Текстура: ";
+    cin >> texture;
+
+    cout << "\n[ + ] Результат:\n" << endl;
+
+    // Основной цикл для строк
+    for (int i = 0; i < size; i++) {
+        // Если строка четная (индексы 0, 2, 4...) — рисуем полную линию
+        if (i % 2 == 0) {
+            for (int j = 0; j < size; j++) {
+                cout << texture << " ";
+            }
+        } 
+        // Если строка нечетная — определяем, с какой стороны будет символ
+        else {
+            // Рассчитываем номер "пролета" (1-й пролет — справа, 2-й — слева)
+            // (i / 2) % 2 == 0 означает, что это 1-й, 3-й и т.д. пролеты
+            if ((i / 2) % 2 == 0) {
+                // Символ справа
+                for (int j = 0; j < size - 1; j++) cout << ". ";
+                cout << texture;
+            } else {
+                // Символ слева
+                cout << texture << " ";
+                for (int j = 0; j < size - 1; j++) cout << ". ";
+            }
+        }
+        cout << endl; // Переход на новую строку
+    }
+
+    return 0;
+}
