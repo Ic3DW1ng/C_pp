@@ -1,0 +1,55 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    system("cls");
+    cout << "[ + ] Фигура: \"Треугольник\"" << endl;
+
+    int type;
+    cout << "\n[ 1 ] Заполненный\n[ 2 ] Пустой" << endl;
+    cout << "\n[ + ] Выберите тип: ";
+    cin >> type;
+
+    int size;
+    char texture;
+    cout << "[ + ] Размер: ";
+    cin >> size;
+    cout << "[ + ] Текстура: ";
+    cin >> texture;
+
+    cout << "\n[ + ] Результат:\n" << endl;
+
+    int mid = size / 2; // Центральный индекс (для 7 это 3)
+    int height = (size / 2) + 1; // Высота треугольника до середины сетки
+
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            
+            // Условие для отрисовки строк только до основания треугольника
+            if (i < height) {
+                // Расстояние от текущего столбца j до центра mid
+                int dist = abs(j - mid);
+
+                if (type == 1) {
+                    // Заполненный: рисуем, если расстояние до центра не больше текущей строки
+                    if (dist <= i) cout << texture << "  ";
+                    else cout << ".  ";
+                } 
+                else {
+                    // Пустой (как в твоем примере): рисуем только ребра и основание
+                    if (dist == i || i == height - 1) cout << texture << "  ";
+                    else cout << ".  ";
+                }
+            } 
+            else {
+                // Все, что ниже основания — заполняем точками
+                cout << ".  ";
+            }
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
