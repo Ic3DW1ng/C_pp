@@ -1,0 +1,45 @@
+#include <iostream>
+#include <algorithm> // Для функции min
+
+using namespace std;
+
+int main() {
+    // Очистка консоли
+    system("cls"); 
+
+    cout << "[ + ] Фигура: \"Рекурсивный квадрат\"" << endl;
+
+    int size;
+    char texture;
+
+    cout << "[ + ] Размер: ";
+    cin >> size;
+    cout << "[ + ] Текстура: ";
+    cin >> texture;
+
+    cout << "\n[ + ] Результат:\n" << endl;
+
+    // Внешний цикл по строкам (i)
+    for (int i = 0; i < size; i++) {
+        // Внутренний цикл по столбцам (j)
+        for (int j = 0; j < size; j++) {
+            
+            // Находим минимальное расстояние от текущей точки (i, j) до границ квадрата
+            int dist = i;                             // Расстояние до верха
+            dist = min(dist, size - 1 - i);           // Расстояние до низа
+            dist = min(dist, j);                      // Расстояние до левого края
+            dist = min(dist, size - 1 - j);           // Расстояние до правого края
+
+            // Если минимальное расстояние четное — рисуем текстуру
+            if (dist % 2 == 0) {
+                cout << texture << "  ";
+            } else {
+                // Иначе рисуем точку (пустоту)
+                cout << ".  ";
+            }
+        }
+        cout << endl; // Переход на новую строку
+    }
+
+    return 0;
+}
